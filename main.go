@@ -15,22 +15,19 @@ func init() {
 
 	Plugin = pkg{
 		Info: plugin.Info{
-			Name: "example",
-			Description: "this is an example plugin for Statup Status Page application.",
-			Form: []plugin.FormElement{{
+			Name:        "Example Plugin",
+			Description: "This is an example plugin for Statup Status Page application. It can be implemented pretty quick!",
+			Form: []*plugin.FormElement{{
 				Name:        "example",
-				Description: "fill out a cool example",
-				SQLValue:    "example",
-				SQLType:     "text",
+				Description: "insert a cool example that will show below an input",
+				InputName:   "example",
+				InputType:   "text",
+				Value:       "example value here",
 			}, {
-				Name:        "webhook url",
-				Description: "the webhook url can be here",
-				SQLValue:    "webhook",
-				SQLType:     "text",
-			}, {
-				Name:        "awesome testing",
-				SQLValue:    "awesome",
-				SQLType:     "text",
+				Name:      "awesome testing",
+				InputName: "awesome",
+				InputType: "text",
+				Value:     "55123",
 			}},
 		},
 	}
