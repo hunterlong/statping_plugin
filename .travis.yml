@@ -1,0 +1,42 @@
+os:
+  - linux
+  - osx
+
+language: go
+
+go:
+  - "1.10.x"
+
+install: true
+
+env:
+  - VERSION=0.1
+
+matrix:
+  allow_failures:
+    - go: master
+  fast_finish: true
+
+before_deploy:
+  - git config --local user.name "hunterlong"
+  - git config --local user.email "info@socialeck.com"
+  - git tag "v$VERSION" --force
+deploy:
+  - provider: releases
+    api_key: $GH_TOKEN
+    file:
+      - "build/example_osx.so"
+      - "build/example_linux.so"
+    skip_cleanup: true
+
+notifications:
+  email: false
+
+before_script:
+  - go get github.com/stretchr/testify/assert
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/rendon/testcli
+  - go get
+
+script:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then /bin/bash -c ./.travis/build.sh; fi
