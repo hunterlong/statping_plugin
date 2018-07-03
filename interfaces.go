@@ -11,7 +11,9 @@ func (p pkg) GetInfo() plugin.Info {
 }
 
 func (p pkg) OnLoad(db sqlbuilder.Database) {
-	fmt.Println("Statup Example Plugin Loaded ", db.Name())
+	fmt.Println("=============================================================")
+	fmt.Printf("  Statup Example Plugin Loaded using %v database\n", db.Name())
+	fmt.Println("=============================================================")
 }
 
 func (p pkg) OnSave(data map[string]interface{}) {
@@ -26,11 +28,19 @@ func (p pkg) OnNewService(data map[string]interface{}) {
 }
 
 func (p pkg) OnSuccess(data map[string]interface{}) {
-	//fmt.Println("Statup Example Plugin received a hit! ", s)
+	fmt.Println("Statup Example Plugin received a hit! ")
+	fmt.Println("Name:    ", data["Name"])
+	fmt.Println("Domain:  ", data["Domain"])
+	fmt.Println("Method:  ", data["Method"])
+	fmt.Println("Latency: ", data["Latency"])
 }
 
 func (p pkg) OnFailure(data map[string]interface{}) {
-	fmt.Println("Statup Example Plugin received a failure! ", data)
+	fmt.Println("Statup Example Plugin received a failure! ")
+	fmt.Println("Name:    ", data["Name"])
+	fmt.Println("Domain:  ", data["Domain"])
+	fmt.Println("Method:  ", data["Method"])
+	fmt.Println("Latency: ", data["Latency"])
 }
 
 func (p pkg) OnSettingsSaved(data map[string]interface{}) {
