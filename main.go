@@ -11,7 +11,7 @@ var (
 	VERSION string
 )
 
-func init() {
+func main() {
 
 	Plugin = pkg{
 		Info: plugin.Info{
