@@ -11,6 +11,10 @@ var (
 	VERSION string
 )
 
+func main() {
+
+}
+
 func init() {
 	Plugin = pkg{
 		Info: plugin.Info{
