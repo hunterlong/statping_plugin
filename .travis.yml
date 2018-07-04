@@ -8,6 +8,11 @@ go:
 
 install: true
 
+sudo: required
+
+services:
+  - docker
+
 env:
   - VERSION=0.1
 
@@ -44,4 +49,5 @@ before_script:
   - go get
 
 script:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then travis_wait 30 docker pull karalabe/xgo-latest; fi
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then /bin/bash -c ./.travis/build.sh; fi
