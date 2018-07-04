@@ -25,8 +25,13 @@ deploy:
   - provider: releases
     api_key: $GH_TOKEN
     file:
-      - "build/example_osx.so"
-      - "build/example_linux.so"
+      - "build/example-osx-x64.tar.gz"
+      - "build/example-osx-x32.tar.gz"
+      - "build/example-linux-x64.tar.gz"
+      - "build/example-linux-x32.tar.gz"
+      - "build/example-linux-arm64.tar.gz"
+      - "build/example-linux-arm7.tar.gz"
+      - "build/example-linux-alpine.tar.gz"
     skip_cleanup: true
 
 notifications:
