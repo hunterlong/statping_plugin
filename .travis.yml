@@ -40,6 +40,7 @@ before_script:
   - go get github.com/stretchr/testify/assert
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/rendon/testcli
+  - go get github.com/karalabe/xgo
   - go get
 
 script:
