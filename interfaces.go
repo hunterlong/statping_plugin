@@ -6,14 +6,24 @@ import (
 	"upper.io/db.v3/lib/sqlbuilder"
 )
 
-func (p pkg) GetInfo() plugin.Info {
-	return Plugin.Info
+// OnLoad triggers when Statup has been fully loaded
+func (p pkg) OnLoad(db sqlbuilder.Database) {
+	// Set global variable 'Database' to use the Statup database
+	Database = db
+
+	// Print some fancy text when your plugin is loaded.
+	fmt.Println("=============================================================")
+	fmt.Printf("  Statup Example Plugin Loaded using %v database\n", Database.Name())
+	fmt.Println("=============================================================")
+
+	// Checkout the 'MakeThenDelete' function inside of database.go
+	// This function will create, read, update, then delete from database
+	MakeThenDelete()
 }
 
-func (p pkg) OnLoad(db sqlbuilder.Database) {
-	fmt.Println("=============================================================")
-	fmt.Printf("  Statup Example Plugin Loaded using %v database\n", db.Name())
-	fmt.Println("=============================================================")
+// Required method to return information about your plugin.
+func (p pkg) GetInfo() plugin.Info {
+	return Plugin.Info
 }
 
 func (p pkg) OnSave(data map[string]interface{}) {
