@@ -5,6 +5,7 @@ SHAPP="statup_plugin"
 REPO="hunterlong/statup-plugin"
 
 bash <(curl -s https://assets.statup.io/install.sh)
+chmod +x /usr/local/bin/statup
 
 rm -rf statup
 mkdir statup
