@@ -28,7 +28,7 @@ mv alpine-linux-amd64 $APP.so
 tar -czvf $APP-linux-alpine.tar.gz $APP.so && rm -f $APP.so
 
 mv $SHAPP-darwin-10.6-amd64 $APP.so
-tar -czvf $APP-osx-x64.tar.gz $APP.so && mv $APP.so ../statup/plugins/$APP.so
+tar -czvf $APP-osx-x64.tar.gz $APP.so && rm -f $APP.so
 
 mv $SHAPP-darwin-10.6-386 $APP.so
 tar -czvf $APP-osx-x32.tar.gz $APP.so && rm -f $APP.so
@@ -43,7 +43,7 @@ mv $SHAPP-linux-arm-7 $APP.so
 tar -czvf $APP-linux-arm7.tar.gz $APP.so && rm -f $APP.so
 
 mv $SHAPP-linux-arm64 $APP.so
-tar -czvf $APP-linux-arm64.tar.gz $APP && rm -f $APP.so
+tar -czvf $APP-linux-arm64.tar.gz $APP && mv $APP.so ../statup/plugins/$APP.so
 
 
 cd ../statup
