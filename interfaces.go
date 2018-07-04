@@ -67,6 +67,12 @@ func (p pkg) OnAfterRequest(map[string]interface{}) {
 	fmt.Println("Statup Example Plugin received after service request!")
 }
 
-func (p *pkg) OnShutdown() {
+func (p pkg) OnShutdown() {
 	fmt.Println("Statup Example Plugin received a shutdown event!")
+}
+func (p pkg) OnUpdatedService(data map[string]interface{}) {
+	fmt.Println("Statup Example Plugin received an update for a service!")
+}
+func (p pkg) OnDeletedService(data map[string]interface{}) {
+	fmt.Println("Statup Example Plugin received delete for a service!")
 }

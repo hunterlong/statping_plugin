@@ -7,7 +7,6 @@ import (
 )
 
 func (p *pkg) Routes() []plugin.Routing {
-	fmt.Println("Statup Example Plugin routing!")
 	return []plugin.Routing{{
 		URL:     "hello",
 		Method:  "GET",
