@@ -46,7 +46,7 @@ before_script:
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/rendon/testcli
   - go get github.com/karalabe/xgo
-  - go install github.com/hunterlong/statup
+  - go get github.com/hunterlong/statup
   - go get
 
 script:
